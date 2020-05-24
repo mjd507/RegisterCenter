@@ -1,0 +1,28 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: register-center-admin
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/config_center?serverTimezone=GMT%2b8&useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    username: root
+    password: root
+    hikari:
+      connection-init-sql: SET NAMES 'utf8mb4'
+    # 默认数据源类型
+    type: com.zaxxer.hikari.HikariDataSource
+
+logging:
+  level:
+    org.springframework.web: trace
+
+#mybatis:
+#  mapper-locations: classpath*:mapper/*.xml
+#  config-location: classpath:mybatis.xml
+
+register-center:
+  connect-string: localhost:2181
+  service-name: ${spring.application.name}
+  discovery-service-name: ${spring.application.name}
